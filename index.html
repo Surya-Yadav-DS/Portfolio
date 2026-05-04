@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surya Prasad Yadav — Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <button id="themeToggle" class="theme-toggle" title="Toggle theme"><i class="fas fa-moon"></i></button>
+
+    <nav class="floating-nav">
+        <a href="#home"       class="nav-item active" data-label="Home">      <i class="fas fa-home"></i></a>
+        <a href="#about"      class="nav-item"         data-label="About">     <i class="fas fa-user"></i></a>
+        <a href="#skills"     class="nav-item"         data-label="Skills">    <i class="fas fa-code"></i></a>
+        <a href="#projects"   class="nav-item"         data-label="Projects">  <i class="fas fa-folder-open"></i></a>
+        <a href="#research"   class="nav-item"         data-label="Research">  <i class="fas fa-file-alt"></i></a>
+        <a href="#experience" class="nav-item"         data-label="Experience"><i class="fas fa-briefcase"></i></a>
+        <a href="#contact"    class="nav-item"         data-label="Contact">   <i class="fas fa-envelope"></i></a>
+    </nav>
+
+    <div class="container">
+
+        <!-- HERO -->
+        <section id="home" class="profile-header">
+            <div class="profile-content">
+                <div class="profile-image-wrapper">
+                    <div class="rotating-border"></div>
+                    <div class="profile-image" id="profileImage">
+                        <img id="profilePhoto" src="" alt="Profile Photo">
+                        <span class="profile-emoji">👨‍💻</span>
+                        <input type="file" id="photoUpload" accept="image/*">
+                    </div>
+                    <button class="upload-btn" id="uploadBtn" style="display:none"
+                            onclick="document.getElementById('photoUpload').click()" title="Upload photo">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                </div>
+                <div class="profile-info">
+                    <div class="available-badge">
+                        <span class="badge-dot"></span>
+                        <span class="badge-text">Available for hire</span>
+                    </div>
+                    <h1 class="profile-name" id="profileName">Surya Prasad Yadav</h1>
+                    <p class="profile-title" id="profileTitle">Data Science Engineer</p>
+                    <div class="profile-details">
+                        <div class="detail-item"><i class="fas fa-map-marker-alt"></i><span id="profileLocation">Kathmandu, Nepal</span></div>
+                        <div class="detail-item"><i class="fas fa-envelope"></i><span id="profileEmail">surya3ydv@gmail.com</span></div>
+                        <div class="detail-item"><i class="fas fa-phone"></i><span id="profilePhone">(+977) 9848703545</span></div>
+                    </div>
+                    <div class="social-links">
+                        <a id="linkGithub"   href="#" class="social-link" title="GitHub"   target="_blank"><i class="fab fa-github"></i></a>
+                        <a id="linkLinkedin" href="#" class="social-link" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a id="linkEmail"    href="#" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
+                        <a id="linkScholar"  href="#" class="social-link" title="Scholar"  target="_blank"><i class="fas fa-graduation-cap"></i></a>
+                        <a id="linkResume"   href="#" class="download-btn" target="_blank">
+                            <i class="fas fa-download"></i><span>Resume</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="about-section">
+            <div class="section-card">
+                <div class="section-header">
+                    <i class="fas fa-sparkles sparkle-icon"></i>
+                    <h2>About Me</h2>
+                </div>
+                <div class="about-content">
+                    <p id="aboutText">I'm a passionate Data Scientist and Machine Learning Engineer with a strong foundation in computer science and a specialization in extracting meaningful insights from complex datasets.</p>
+                    <div class="tags">
+                        <span class="tag">Problem Solver</span>
+                        <span class="tag">Team Player</span>
+                        <span class="tag">Continuous Learner</span>
+                        <span class="tag">Open Source Contributor</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS -->
+        <section class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-icon" data-color="blue"><i class="fas fa-code"></i></div><h3 class="stat-value" id="statProjects">5</h3><p class="stat-label">Projects Completed</p></div>
+                <div class="stat-card"><div class="stat-icon" data-color="purple"><i class="fas fa-code-branch"></i></div><h3 class="stat-value" id="statLines">10K+</h3><p class="stat-label">Lines of Code</p></div>
+                <div class="stat-card"><div class="stat-icon" data-color="orange"><i class="fas fa-award"></i></div><h3 class="stat-value" id="statCerts">15+</h3><p class="stat-label">Certifications</p></div>
+                <div class="stat-card"><div class="stat-icon" data-color="green"><i class="fas fa-users"></i></div><h3 class="stat-value" id="statCollab">8+</h3><p class="stat-label">Collaborations</p></div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="skills-section">
+            <h2 class="section-title">Skills &amp; Expertise</h2>
+            <div class="skills-grid" id="skillsGrid"></div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="projects-section">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Explore my work</p>
+            <div class="projects-grid" id="projectsGrid"></div>
+        </section>
+
+        <!-- RESEARCH -->
+        <section id="research" class="research-section">
+            <div class="section-header-center">
+                <h2 class="section-title">Research Publications</h2>
+                <p class="section-subtitle">Published research in machine learning and data science</p>
+            </div>
+            <div class="research-list" id="researchList"></div>
+            <div class="scholar-link">
+                <p>View all publications on Google Scholar</p>
+                <a id="linkScholarBtn" href="#" class="scholar-btn" target="_blank">
+                    <i class="fas fa-graduation-cap"></i><span>Google Scholar Profile</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ACHIEVEMENTS -->
+        <section class="achievements-section">
+            <h2 class="section-title">Achievements &amp; Certifications</h2>
+            <div class="achievements-grid" id="achievementsGrid"></div>
+        </section>
+
+        <!-- EDUCATION + EXPERIENCE -->
+        <section id="experience" class="education-experience-section">
+            <div class="edu-exp-grid">
+                <div class="education-column">
+                    <h2 class="section-title">Education</h2>
+                    <div id="educationList"></div>
+                </div>
+                <div class="experience-column">
+                    <h2 class="section-title">Experience</h2>
+                    <div id="experienceList"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="contact-section">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>I'm always open to discussing new projects and opportunities.</p>
+                    <div class="contact-cards">
+                        <div class="contact-card">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div><p class="contact-label">Email</p><p class="contact-value" id="contactEmail">surya3ydv@gmail.com</p></div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <div><p class="contact-label">Phone</p><p class="contact-value" id="contactPhone">(+977) 9848703545</p></div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div><p class="contact-label">Location</p><p class="contact-value" id="contactLocation">Kathmandu, Nepal</p></div>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group"><label>Name</label><input type="text" id="msg_name" required placeholder="Your name"></div>
+                    <div class="form-group"><label>Email</label><input type="email" id="msg_email" required placeholder="your.email@example.com"></div>
+                    <div class="form-group"><label>Subject</label><input type="text" id="msg_subject" placeholder="What's this about?"></div>
+                    <div class="form-group"><label>Message</label><textarea id="msg_message" rows="5" required placeholder="Tell me about your project..."></textarea></div>
+                    <button type="submit" class="submit-btn" id="submitBtn"><i class="fas fa-paper-plane"></i><span>Send Message</span></button>
+                    <div id="formFeedback" style="display:none;margin-top:12px;padding:10px 14px;border-radius:10px;font-size:13px;font-weight:500;"></div>
+                </form>
+            </div>
+        </section>
+
+        <footer class="footer"><p id="footerText">© 2026 Surya Prasad Yadav</p></footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="animations.js"></script>
+</body>
+</html>
