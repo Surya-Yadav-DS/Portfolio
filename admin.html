@@ -244,7 +244,6 @@
             <input type="password" class="login-input" id="pwInput" placeholder="Password" />
             <button class="login-btn" onclick="tryLogin()"><i class="fas fa-sign-in-alt"></i> Sign In</button>
             <div class="login-error" id="loginError">Incorrect password. Please try again.</div>
-            <p class="login-hint">Default password is set in admin.js</p>
         </div>
     </div>
 </div>
@@ -264,13 +263,6 @@
     <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)">
 
     <div class="admin-body">
-
-        <div class="vercel-note">
-            <strong>🚀 Vercel Deployment:</strong>
-            Edits you save here update <em>this browser only</em> (localStorage). To update your <strong>live Vercel site</strong>:
-            click <strong>Export for Vercel</strong> above → save the downloaded <code>script.js</code> into your project → <code>git add script.js</code> → <code>git commit</code> → <code>git push</code>.
-            Vercel redeploys in ~30 seconds. Messages from the contact form are always visible here (same browser, same origin).
-        </div>
 
         <!-- Tabs -->
         <div class="tabs">
@@ -381,14 +373,6 @@
         <div id="tab-messages" class="tab-pane">
             <div class="panel">
                 <div class="panel-title"><i class="fas fa-inbox"></i> Received Messages</div>
-
-                <div class="info-note">
-                    <strong>📌 How messages work:</strong>
-                    Messages sent through the contact form on your portfolio are saved here.
-                    They persist in this browser's storage. Use <strong>Reply via Email</strong>
-                    to respond directly to senders. Messages you delete are gone permanently —
-                    read them first!
-                </div>
 
                 <!-- Stats -->
                 <div class="msg-stats-row">

@@ -1,9 +1,8 @@
 // ─────────────────────────────────────────────────────────────
 //  admin.js  —  Password-protected admin panel logic
-//  ⚠  CHANGE THE PASSWORD BELOW before publishing!
 // ─────────────────────────────────────────────────────────────
 
-const ADMIN_PASSWORD = 'Sydv@1122'; // ← CHANGE THIS before going live
+const ADMIN_PASSWORD = 'Sydv@1122'; 
 
 // ── Authentication ────────────────────────────────────────────
 function tryLogin() {

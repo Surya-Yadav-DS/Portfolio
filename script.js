@@ -1,14 +1,7 @@
 // ─────────────────────────────────────────────────────────────
 //  script.js  —  Public portfolio
-//
-//  VERCEL FIX — HOW TO UPDATE YOUR LIVE SITE:
-//  1. Make changes in admin panel → click "Export for Vercel"
-//  2. It downloads an updated script.js with your data baked in
-//  3. Replace this file → git add . → git commit → git push
-//  4. Vercel redeploys in ~30 seconds — all visitors see changes
 // ─────────────────────────────────────────────────────────────
 
-// ── EDIT THIS OBJECT to update your live Vercel site ─────────
 const DEFAULT_DATA = {
     profile: {
         name:     'Surya Prasad Yadav',
