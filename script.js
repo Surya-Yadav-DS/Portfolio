@@ -14,13 +14,13 @@
 const DEFAULT_DATA = {
     "profile": {
         "name": "Surya Prasad Yadav",
-        "title": "Data Science Engineer",
+        "title": "Data Sciene Engineer",
         "email": "surya3ydv@gmail.com",
         "phone": "(+977) 9848703545",
         "location": "Kathmandu, Nepal",
-        "github": "https://github.com/yourusername",
-        "linkedin": "https://linkedin.com/in/yourusername",
-        "scholar": "https://scholar.google.com/citations?user=yourid",
+        "github": "https://github.com/Surya-Yadav-DS",
+        "linkedin": "https://www.linkedin.com/in/surya-prasad-yadav-8b8a82238/",
+        "scholar": "https://scholar.google.com/citations?user=N-KpILwAAAAJ&hl=en&authuser=1",
         "resume": "#"
     },
     "skills": [
@@ -67,92 +67,94 @@ const DEFAULT_DATA = {
                     "level": 75
                 }
             ]
-        },
-        {
-            "icon": "fa-database",
-            "title": "Data Engineering",
-            "skills": [
-                {
-                    "name": "Apache Spark",
-                    "level": 85
-                },
-                {
-                    "name": "PostgreSQL",
-                    "level": 88
-                },
-                {
-                    "name": "MongoDB",
-                    "level": 80
-                },
-                {
-                    "name": "Redis",
-                    "level": 75
-                }
-            ]
         }
     ],
     "projects": [
         {
-            "title": "Customer Churn Prediction",
-            "description": "ML model predicting churn with 94% accuracy.",
+            "title": "SqgmentIQ",
+            "description": "Built an ML model for Ecommerce and Business insights and analysis",
+            "highlight": "Business Insights",
+            "tags": [
+                "Python",
+                "Kmeans",
+                "Streamlit"
+            ],
+            "github": "https://github.com/Surya-Yadav-DS/SegmentIQ",
+            "live": "https://segmentiq-surya.streamlit.app/"
+        },
+        {
+            "title": "NEPSE Analytics",
+            "description": "Analyzes the past market trend and predicts the future trends.",
+            "highlight": "73% Accuracy",
             "tags": [
                 "Python",
                 "XGBoost",
-                "AWS"
+                "Random Forest",
+                "Ridge"
             ],
-            "github": "https://github.com/yourusername/churn",
-            "live": "",
-            "highlight": "94% Accuracy"
+            "github": "https://github.com/Surya-Yadav-DS/nepse_analytics",
+            "live": "https://nepse-analytics-surya.streamlit.app/"
         }
     ],
     "research": [
         {
-            "title": "Novel Approaches to Time Series Anomaly Detection",
-            "authors": "Surya Prasad Yadav et al.",
-            "venue": "IEEE International Conference on Data Science",
-            "year": "2024",
-            "abstract": "Deep learning architecture for anomaly detection.",
-            "citations": 15,
-            "link": "",
-            "pdfLink": "",
+            "title": "Hybrid CNN-LSTM approach for sentiment analysis on IMDB movie reviews",
+            "authors": "Surya Prasad Yadav, Rahul Kumar Gupta, Prasant Kumar Dash",
+            "venue": "CRC Press",
+            "year": "2025",
+            "citations": 1,
+            "abstract": "The paper introduces a CNN-LSTM hybrid model for sentiment analysis on IMDB data, outperforming traditional models—enhancing accuracy, interpretability, and robustness.",
             "tags": [
-                "Deep Learning",
-                "Anomaly Detection"
-            ]
+                "NLP"
+            ],
+            "link": "https://www.taylorfrancis.com/chapters/edit/10.1201/9781003658221-55/hybrid-cnn-lstm-approach-sentiment-analysis-imdb-movie-reviews-rahul-kumar-gupta-binayak-ojha-surya-prasad-yadav-abhinav-kumar-singh-prasant-kumar-dash-aadarsh-kumar-singh",
+            "pdfLink": "#"
         }
     ],
-    "achievements": [
-        {
-            "icon": "fa-trophy",
-            "title": "First Place — Data Science Hackathon 2025",
-            "description": "Won first place among 200+ teams.",
-            "date": "March 2025",
-            "category": "Competition"
-        }
-    ],
+    "achievements": [],
     "education": [
         {
             "degree": "Bachelor of Technology in Computer Science & Engineering",
             "specialization": "Data Science",
             "institution": "C.V. Raman Global University",
             "location": "Bhubaneswar, India",
-            "period": "2021 – 2025",
+            "period": "2021 - 2025",
             "gpa": "8.46/10.0",
             "highlights": [
-                "Machine Learning concentration",
-                "Senior Thesis: Anomaly Detection in Time Series Data"
+                "Concentration in ML",
+                "Relevant Coursework"
             ]
+        },
+        {
+            "degree": "Higher Secondary",
+            "specialization": "",
+            "institution": "DAV Sushil Kedia Vishwa Bharati",
+            "location": "Kathmandu, Nepal",
+            "period": "2019-2021",
+            "gpa": "80.50%",
+            "highlights": [
+                ""
+            ]
+        },
+        {
+            "degree": "Secondary",
+            "specialization": "",
+            "institution": "RR Sure Success English Boarding School",
+            "location": "Malangawa, Nepal",
+            "period": "2019",
+            "gpa": "3.45/4.0",
+            "highlights": []
         }
     ],
     "experience": [
         {
-            "title": "Data Science Engineer",
-            "company": "CloudMind Analytics",
-            "location": "Kathmandu, Nepal",
-            "period": "Jan 2024 – Present",
+            "title": "Data Science Intern",
+            "company": "Tech Company",
+            "location": "City, Country",
+            "period": "Jun 2024 - Aug 2024",
             "description": [
-                "Developed predictive models improving retention by 28%",
-                "Built ETL pipelines processing 10M+ records daily"
+                "Developed predictive models",
+                "Built ETL pipelines"
             ]
         }
     ]
