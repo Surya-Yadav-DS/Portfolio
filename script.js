@@ -14,13 +14,13 @@
 const DEFAULT_DATA = {
     "profile": {
         "name": "Surya Prasad Yadav",
-        "title": "Data Sciene Engineer",
+        "title": "Data Science Engineer",
         "email": "surya3ydv@gmail.com",
         "phone": "(+977) 9848703545",
         "location": "Kathmandu, Nepal",
-        "github": "https://github.com/Surya-Yadav-DS",
-        "linkedin": "https://www.linkedin.com/in/surya-prasad-yadav-8b8a82238/",
-        "scholar": "https://scholar.google.com/citations?user=N-KpILwAAAAJ&hl=en&authuser=1",
+        "github": "https://github.com/yourusername",
+        "linkedin": "https://linkedin.com/in/yourusername",
+        "scholar": "https://scholar.google.com/citations?user=yourid",
         "resume": "#"
     },
     "skills": [
@@ -67,21 +67,31 @@ const DEFAULT_DATA = {
                     "level": 75
                 }
             ]
+        },
+        {
+            "icon": "fa-database",
+            "title": "Data Engineering",
+            "skills": [
+                {
+                    "name": "Apache Spark",
+                    "level": 85
+                },
+                {
+                    "name": "PostgreSQL",
+                    "level": 88
+                },
+                {
+                    "name": "MongoDB",
+                    "level": 80
+                },
+                {
+                    "name": "Redis",
+                    "level": 75
+                }
+            ]
         }
     ],
     "projects": [
-        {
-            "title": "SqgmentIQ",
-            "description": "Built an ML model for Ecommerce and Business insights and analysis",
-            "highlight": "Business Insights",
-            "tags": [
-                "Python",
-                "Kmeans",
-                "Streamlit"
-            ],
-            "github": "https://github.com/Surya-Yadav-DS/SegmentIQ",
-            "live": "https://segmentiq-surya.streamlit.app/"
-        },
         {
             "title": "NEPSE Analytics",
             "description": "Analyzes the past market trend and predicts the future trends.",
@@ -94,6 +104,18 @@ const DEFAULT_DATA = {
             ],
             "github": "https://github.com/Surya-Yadav-DS/nepse_analytics",
             "live": "https://nepse-analytics-surya.streamlit.app/"
+        },
+        {
+            "title": "SegmentIQ",
+            "description": "Built an ML model for Ecommerce and Business insights and analysis",
+            "highlight": "Business Insights",
+            "tags": [
+                "Python",
+                "Kmeans",
+                "Streamlit"
+            ],
+            "github": "https://github.com/Surya-Yadav-DS/SegmentIQ",
+            "live": "https://segmentiq-surya.streamlit.app/"
         }
     ],
     "research": [
@@ -118,46 +140,41 @@ const DEFAULT_DATA = {
             "specialization": "Data Science",
             "institution": "C.V. Raman Global University",
             "location": "Bhubaneswar, India",
-            "period": "2021 - 2025",
+            "period": "2021 – 2025",
             "gpa": "8.46/10.0",
             "highlights": [
-                "Concentration in ML",
-                "Relevant Coursework"
+                "Machine Learning concentration",
+                "Data Visualization"
             ]
         },
         {
-            "degree": "Higher Secondary",
+            "degree": "12th Certificate",
             "specialization": "",
             "institution": "DAV Sushil Kedia Vishwa Bharati",
             "location": "Kathmandu, Nepal",
             "period": "2019-2021",
             "gpa": "80.50%",
             "highlights": [
-                ""
+                "Physics",
+                "Chemistry",
+                "Mathematics",
+                "Computer Science"
             ]
         },
         {
-            "degree": "Secondary",
+            "degree": "10th Certificate",
             "specialization": "",
             "institution": "RR Sure Success English Boarding School",
             "location": "Malangawa, Nepal",
             "period": "2019",
             "gpa": "3.45/4.0",
-            "highlights": []
-        }
-    ],
-    "experience": [
-        {
-            "title": "Data Science Intern",
-            "company": "Tech Company",
-            "location": "City, Country",
-            "period": "Jun 2024 - Aug 2024",
-            "description": [
-                "Developed predictive models",
-                "Built ETL pipelines"
+            "highlights": [
+                "Mathematics",
+                "Science"
             ]
         }
-    ]
+    ],
+    "experience": []
 };
 
 // Load from localStorage if admin saved data in the same browser;
