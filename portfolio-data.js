@@ -267,7 +267,7 @@ ML systems — turning raw data into intelligent, impactful products.`,
   // 4. Copy your Service ID, Template ID, and Public Key below
   emailjs: {
     serviceId:  'service_2rsiuzd',
-    templateId: 'template_lzxvxjo',
+    templateId: 'template_yu15nfm',
     publicKey:  'W0XBkOMINniq2HdBG',
   },
 };
