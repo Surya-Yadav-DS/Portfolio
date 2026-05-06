@@ -64,19 +64,23 @@ function switchTab(name, btn) {
 // ── PROFILE ──────────────────────────────────────────────────
 function loadProfileFields() {
     const p = data.profile || {};
-    setValue('p_name',     p.name     || '');
-    setValue('p_title',    p.title    || '');
-    setValue('p_email',    p.email    || '');
-    setValue('p_phone',    p.phone    || '');
-    setValue('p_location', p.location || '');
-    setValue('p_github',   p.github   || '');
-    setValue('p_linkedin', p.linkedin || '');
-    setValue('p_scholar',  p.scholar  || '');
-    setValue('p_resume',   p.resume   || '');
+    setValue('p_name',      p.name     || '');
+    setValue('p_title',     p.title    || '');
+    setValue('p_email',     p.email    || '');
+    setValue('p_phone',     p.phone    || '');
+    setValue('p_location',  p.location || '');
+    setValue('p_github',    p.github   || '');
+    setValue('p_linkedin',  p.linkedin || '');
+    setValue('p_scholar',   p.scholar  || '');
+    setValue('p_resume',    p.resume   || '');
+    setValue('p_photo_url', p.photoUrl || '');
+    if (p.photoUrl) renderPhotoPreview(p.photoUrl);
 }
 function setValue(id, val) { const e = document.getElementById(id); if (e) e.value = val; }
 
 function saveProfile() {
+    // Preserve whatever photoUrl is already set (URL button or file upload sets it directly)
+    const existingPhotoUrl = (data.profile || {}).photoUrl || '';
     data.profile = {
         name:     document.getElementById('p_name').value.trim(),
         title:    document.getElementById('p_title').value.trim(),
@@ -87,41 +91,106 @@ function saveProfile() {
         linkedin: document.getElementById('p_linkedin').value.trim(),
         scholar:  document.getElementById('p_scholar').value.trim(),
         resume:   document.getElementById('p_resume').value.trim(),
+        photoUrl: existingPhotoUrl,
     };
     saveAll();
 }
 
 // ── PHOTO ─────────────────────────────────────────────────────
-function loadPhotoPreview() {
-    const saved = localStorage.getItem('profilePhoto');
-    if (saved) showPhotoPreview(saved);
+
+// Convert ANY Google Drive sharing URL into the thumbnail API format
+// which bypasses CORS/redirect issues and works as a plain <img src>
+function toDirectImageUrl(url) {
+    if (!url) return url;
+
+    // Already a direct image or base64 — leave it alone
+    if (url.startsWith('data:')) return url;
+
+    // Formats to match:
+    // https://drive.google.com/file/d/FILE_ID/view?usp=sharing
+    // https://drive.google.com/open?id=FILE_ID
+    // https://drive.google.com/uc?id=FILE_ID  (old format — also broken now)
+    const fileIdMatch =
+        url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/) ||
+        url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+
+    if (fileIdMatch) {
+        // thumbnail API — reliably works without CORS or redirect issues
+        return `https://drive.google.com/thumbnail?id=${fileIdMatch[1]}&sz=w600`;
+    }
+
+    // GitHub blob pages → convert to raw URL
+    const ghBlob = url.match(/github\.com\/([^/]+)\/([^/]+)\/blob\/(.+)/);
+    if (ghBlob) {
+        return `https://raw.githubusercontent.com/${ghBlob[1]}/${ghBlob[2]}/${ghBlob[3]}`;
+    }
+
+    return url; // already a direct URL (imgur, etc.) — use as-is
 }
-function uploadPhoto(e) {
+
+function renderPhotoPreview(src) {
+    if (!src) return;
+    const img         = document.getElementById('adminPhotoPreview');
+    const placeholder = document.getElementById('photoPlaceholder');
+    if (!img) return;
+    img.src           = src;
+    img.style.display = 'block';
+    if (placeholder) placeholder.style.display = 'none';
+}
+
+// Called on every keystroke so user sees a live preview
+function livePreviewUrl(val) {
+    const converted = toDirectImageUrl((val || '').trim());
+    if (converted) renderPhotoPreview(converted);
+}
+
+// "Use URL" button — converts + saves into profile.photoUrl
+function applyPhotoUrl() {
+    const raw = (document.getElementById('p_photo_url')?.value || '').trim();
+    if (!raw) { showNotif('⚠ Paste an image URL first.'); return; }
+
+    const converted = toDirectImageUrl(raw);
+    // Write the converted URL back so user sees exactly what will be stored
+    setValue('p_photo_url', converted);
+
+    if (!data.profile) data.profile = {};
+    data.profile.photoUrl = converted;
+    renderPhotoPreview(converted);
+    saveAll();
+    showNotif('✓ Photo URL saved! Click "Export for Vercel" to deploy.');
+}
+
+function loadPhotoPreview() {
+    const url = (data.profile || {}).photoUrl || localStorage.getItem('profilePhoto');
+    if (url) renderPhotoPreview(url);
+}
+
+// File upload — converts to base64, stores as profile.photoUrl
+function uploadPhotoFile(e) {
     const file = e.target.files[0]; if (!file) return;
     const reader = new FileReader();
     reader.onload = ev => {
-        localStorage.setItem('profilePhoto', ev.target.result);
-        showPhotoPreview(ev.target.result);
-        showNotif('✓ Photo saved!');
+        const dataUrl = ev.target.result;
+        if (!data.profile) data.profile = {};
+        data.profile.photoUrl = dataUrl;
+        setValue('p_photo_url', dataUrl);
+        renderPhotoPreview(dataUrl);
+        localStorage.setItem('profilePhoto', dataUrl); // legacy same-browser sync
+        saveAll();
+        showNotif('✓ Photo uploaded! Click "Export for Vercel" to deploy.');
     };
     reader.readAsDataURL(file);
 }
-function showPhotoPreview(src) {
-    const img  = document.getElementById('adminPhotoPreview');
-    const icon = document.querySelector('.photo-upload-area .upload-icon');
-    const txts = document.querySelectorAll('.photo-upload-area p');
-    img.src = src; img.style.display = 'block';
-    if (icon) icon.style.display = 'none';
-    txts.forEach(t => { t.style.display = 'none'; });
-}
+
 function removePhoto() {
+    if (data.profile) data.profile.photoUrl = '';
+    setValue('p_photo_url', '');
     localStorage.removeItem('profilePhoto');
-    const img  = document.getElementById('adminPhotoPreview');
-    const icon = document.querySelector('.photo-upload-area .upload-icon');
-    const txts = document.querySelectorAll('.photo-upload-area p');
-    img.style.display = 'none';
-    if (icon) icon.style.display = '';
-    txts.forEach(t => { t.style.display = ''; });
+    const img         = document.getElementById('adminPhotoPreview');
+    const placeholder = document.getElementById('photoPlaceholder');
+    if (img)         { img.src = ''; img.style.display = 'none'; }
+    if (placeholder) placeholder.style.display = 'flex';
+    saveAll();
     showNotif('✓ Photo removed.');
 }
 
@@ -691,15 +760,21 @@ function applyProfile(d) {
     if (p.email)    setHref('linkEmail',     'mailto:' + p.email);
     if (p.scholar)  { setHref('linkScholar', p.scholar); setHref('linkScholarBtn', p.scholar); }
     if (p.resume)   setHref('linkResume',    p.resume);
+    if (p.photoUrl) applyPhotoToPage(p.photoUrl);
+}
+
+function applyPhotoToPage(src) {
+    if (!src) return;
+    const img   = document.getElementById('profilePhoto');
+    const emoji = document.querySelector('.profile-emoji');
+    if (img)   { img.src = src; img.style.display = 'block'; }
+    if (emoji) emoji.style.display = 'none';
 }
 
 function loadSavedPhoto() {
+    if ((portfolioData.profile || {}).photoUrl) return;
     const photo = localStorage.getItem('profilePhoto');
-    if (!photo) return;
-    const img   = document.getElementById('profilePhoto');
-    const emoji = document.querySelector('.profile-emoji');
-    if (img)   { img.src = photo; img.style.display = 'block'; }
-    if (emoji) emoji.style.display = 'none';
+    if (photo) applyPhotoToPage(photo);
 }
 
 // ── Theme ─────────────────────────────────────────────────────
