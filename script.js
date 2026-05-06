@@ -1,14 +1,5 @@
 // ─────────────────────────────────────────────────────────────
 //  script.js  —  Public portfolio renderer
-//
-//  HOW TO UPDATE YOUR LIVE VERCEL SITE:
-//  1. In admin.html click "Export for Vercel"
-//  2. Save the downloaded script.js into your project folder
-//     (replace the old one)
-//  3. git add script.js
-//  4. git commit -m "update portfolio content"
-//  5. git push
-//  Vercel auto-deploys — visitors see your changes in ~30s.
 // ─────────────────────────────────────────────────────────────
 
 const DEFAULT_DATA = {
@@ -18,10 +9,11 @@ const DEFAULT_DATA = {
         "email": "surya3ydv@gmail.com",
         "phone": "(+977) 9848703545",
         "location": "Kathmandu, Nepal",
-        "github": "https://github.com/yourusername",
-        "linkedin": "https://linkedin.com/in/yourusername",
-        "scholar": "https://scholar.google.com/citations?user=yourid",
-        "resume": "#"
+        "github": "https://github.com/Surya-Yadav-DS",
+        "linkedin": "https://www.linkedin.com/in/surya-prasad-yadav-8b8a82238/",
+        "scholar": "https://scholar.google.com/citations?user=N-KpILwAAAAJ&hl=en&authuser=1",
+        "resume": "",
+        "photoUrl": "https://drive.google.com/thumbnail?id=1Eytfle8QGZplpdgaTmyu-V3n-xPLhyab&sz=w600"
     },
     "skills": [
         {
@@ -67,28 +59,6 @@ const DEFAULT_DATA = {
                     "level": 75
                 }
             ]
-        },
-        {
-            "icon": "fa-database",
-            "title": "Data Engineering",
-            "skills": [
-                {
-                    "name": "Apache Spark",
-                    "level": 85
-                },
-                {
-                    "name": "PostgreSQL",
-                    "level": 88
-                },
-                {
-                    "name": "MongoDB",
-                    "level": 80
-                },
-                {
-                    "name": "Redis",
-                    "level": 75
-                }
-            ]
         }
     ],
     "projects": [
@@ -111,7 +81,7 @@ const DEFAULT_DATA = {
             "highlight": "Business Insights",
             "tags": [
                 "Python",
-                "Kmeans",
+                "KMeans",
                 "Streamlit"
             ],
             "github": "https://github.com/Surya-Yadav-DS/SegmentIQ",
@@ -140,11 +110,11 @@ const DEFAULT_DATA = {
             "specialization": "Data Science",
             "institution": "C.V. Raman Global University",
             "location": "Bhubaneswar, India",
-            "period": "2021 – 2025",
+            "period": "2021 - 2025",
             "gpa": "8.46/10.0",
             "highlights": [
-                "Machine Learning concentration",
-                "Data Visualization"
+                "Concentration in ML",
+                "Relevant Coursework"
             ]
         },
         {
@@ -155,10 +125,9 @@ const DEFAULT_DATA = {
             "period": "2019-2021",
             "gpa": "80.50%",
             "highlights": [
-                "Physics",
-                "Chemistry",
+                "Computer Science",
                 "Mathematics",
-                "Computer Science"
+                "Physics"
             ]
         },
         {
@@ -246,15 +215,21 @@ function applyProfile(d) {
     if (p.email)    setHref('linkEmail',     'mailto:' + p.email);
     if (p.scholar)  { setHref('linkScholar', p.scholar); setHref('linkScholarBtn', p.scholar); }
     if (p.resume)   setHref('linkResume',    p.resume);
+    if (p.photoUrl) applyPhotoToPage(p.photoUrl);
+}
+
+function applyPhotoToPage(src) {
+    if (!src) return;
+    const img   = document.getElementById('profilePhoto');
+    const emoji = document.querySelector('.profile-emoji');
+    if (img)   { img.src = src; img.style.display = 'block'; }
+    if (emoji) emoji.style.display = 'none';
 }
 
 function loadSavedPhoto() {
+    if ((portfolioData.profile || {}).photoUrl) return;
     const photo = localStorage.getItem('profilePhoto');
-    if (!photo) return;
-    const img   = document.getElementById('profilePhoto');
-    const emoji = document.querySelector('.profile-emoji');
-    if (img)   { img.src = photo; img.style.display = 'block'; }
-    if (emoji) emoji.style.display = 'none';
+    if (photo) applyPhotoToPage(photo);
 }
 
 // ── Theme ─────────────────────────────────────────────────────
