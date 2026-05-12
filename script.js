@@ -12,35 +12,43 @@ const DEFAULT_DATA = {
         "github": "https://github.com/Surya-Yadav-DS",
         "linkedin": "https://www.linkedin.com/in/surya-prasad-yadav-8b8a82238/",
         "scholar": "https://scholar.google.com/citations?user=N-KpILwAAAAJ&hl=en&authuser=1",
-        "resume": "",
+        "resume": "#",
         "photoUrl": "https://drive.google.com/thumbnail?id=1Eytfle8QGZplpdgaTmyu-V3n-xPLhyab&sz=w600"
     },
     "skills": [
         {
+            "title": "Machine Learning & AI",
             "icon": "fa-brain",
-            "title": "Machine Learning",
             "skills": [
                 {
-                    "name": "TensorFlow",
-                    "level": 90
-                },
-                {
-                    "name": "PyTorch",
+                    "name": "Machine Learning",
                     "level": 85
                 },
                 {
-                    "name": "Scikit-learn",
-                    "level": 95
+                    "name": "Deep Learning",
+                    "level": 80
                 },
                 {
-                    "name": "Keras",
+                    "name": "NLP",
+                    "level": 90
+                },
+                {
+                    "name": "Data Mining",
                     "level": 80
+                },
+                {
+                    "name": "Feature Engineering",
+                    "level": 85
+                },
+                {
+                    "name": "Model Evaluation",
+                    "level": 85
                 }
             ]
         },
         {
-            "icon": "fa-code",
             "title": "Programming",
+            "icon": "fa-code",
             "skills": [
                 {
                     "name": "Python",
@@ -55,8 +63,76 @@ const DEFAULT_DATA = {
                     "level": 90
                 },
                 {
+                    "name": "C",
+                    "level": 80
+                },
+                {
+                    "name": "Java",
+                    "level": 80
+                },
+                {
                     "name": "JavaScript",
                     "level": 75
+                }
+            ]
+        },
+        {
+            "title": "Data Science & Analytics",
+            "icon": "fa-solid fa-chart-area",
+            "skills": [
+                {
+                    "name": "Data Analysis",
+                    "level": 85
+                },
+                {
+                    "name": "Data Visualization",
+                    "level": 90
+                },
+                {
+                    "name": "Exploratory Data Analysis (EDA)",
+                    "level": 85
+                },
+                {
+                    "name": "Statical Analysis",
+                    "level": 80
+                },
+                {
+                    "name": "Time Series Analysis",
+                    "level": 80
+                }
+            ]
+        },
+        {
+            "title": "Tools & Platforms",
+            "icon": "fa-solid fa-screwdriver-wrench",
+            "skills": [
+                {
+                    "name": "Pandas",
+                    "level": 85
+                },
+                {
+                    "name": "Numpy",
+                    "level": 85
+                },
+                {
+                    "name": "Scikit-learn",
+                    "level": 80
+                },
+                {
+                    "name": "Streamlit",
+                    "level": 85
+                },
+                {
+                    "name": "Git & GitHub",
+                    "level": 80
+                },
+                {
+                    "name": "VS Code",
+                    "level": 85
+                },
+                {
+                    "name": "PowerBI",
+                    "level": 80
                 }
             ]
         }
@@ -81,7 +157,7 @@ const DEFAULT_DATA = {
             "highlight": "Business Insights",
             "tags": [
                 "Python",
-                "KMeans",
+                "Kmeans",
                 "Streamlit"
             ],
             "github": "https://github.com/Surya-Yadav-DS/SegmentIQ",
@@ -103,18 +179,56 @@ const DEFAULT_DATA = {
             "pdfLink": "#"
         }
     ],
-    "achievements": [],
+    "achievements": [
+        {
+            "title": "Innovate Odisha Hackathon 2.0",
+            "description": "24-Hour Tech Marathon",
+            "icon": "fa-medal",
+            "category": "Hackathon",
+            "date": "September 2024"
+        },
+        {
+            "title": "Embedded Systems Training and Internship",
+            "description": "Got hands-on experience on embedded systems.",
+            "icon": "fa-award",
+            "category": "Training cum Internship",
+            "date": "July 2024"
+        },
+        {
+            "title": "Cisco Certified Network Associate (CCNA)",
+            "description": "Validated knowledge in network fundamentals, IP connectivity, IP services and security fundamentals.",
+            "icon": "fa-award",
+            "category": "Certification",
+            "date": "May 2023"
+        },
+        {
+            "title": "Google UX Design Certificate - Coursera",
+            "description": "Developed proficiency in the end-to-end UX design process.",
+            "icon": "fa-award",
+            "category": "Certification",
+            "date": "May 2024"
+        },
+        {
+            "title": "Infosys Springboard Data Visualization Course",
+            "description": "Completed an 8-week virtual internship in data insights, PowerBI, modeling, and dashboard design.",
+            "icon": "fa-award",
+            "category": "Certificate",
+            "date": "March 2024"
+        }
+    ],
     "education": [
         {
             "degree": "Bachelor of Technology in Computer Science & Engineering",
             "specialization": "Data Science",
             "institution": "C.V. Raman Global University",
             "location": "Bhubaneswar, India",
-            "period": "2021 - 2025",
+            "period": "2021 – 2025",
             "gpa": "8.46/10.0",
             "highlights": [
-                "Concentration in ML",
-                "Relevant Coursework"
+                "Advanced Machine Learning",
+                "Data Visualization",
+                "Data Mining & Data Warehousing",
+                "Big Data & Analytics"
             ]
         },
         {
@@ -143,7 +257,15 @@ const DEFAULT_DATA = {
             ]
         }
     ],
-    "experience": []
+    "experience": [
+        {
+            "title": "Embedded Systems and AI Intern",
+            "company": "Cranes Varsity",
+            "location": "Bengaluru, India",
+            "period": "Oct 2024 - Feb 2025",
+            "description": []
+        }
+    ]
 };
 
 // Load from localStorage if admin saved data in the same browser;
