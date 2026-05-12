@@ -678,15 +678,6 @@ function exportForVercel() {
 
     const js = `// ─────────────────────────────────────────────────────────────
 //  script.js  —  Public portfolio renderer
-//
-//  HOW TO UPDATE YOUR LIVE VERCEL SITE:
-//  1. In admin.html click "Export for Vercel"
-//  2. Save the downloaded script.js into your project folder
-//     (replace the old one)
-//  3. git add script.js
-//  4. git commit -m "update portfolio content"
-//  5. git push
-//  Vercel auto-deploys — visitors see your changes in ~30s.
 // ─────────────────────────────────────────────────────────────
 
 const DEFAULT_DATA = ${snapshot};
